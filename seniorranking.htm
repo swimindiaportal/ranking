@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Seniors - SwimIndia - KSA Karnataka Swimmers Ranking* - 2017</title>
+        <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css'>
+        <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header id="bg_banner_img" style="text-align: center;">
+            <img src="banner.png" style="max-width: 100%;">
+        </header>
+        <div class="container" ng-app="sortApp" ng-controller="mainController">
+            <p> </p>
+            <h3 class="entry-title"><p class="text-center"> Senior Group: SwimIndia - KSA Karnataka Swimmers Ranking* - 2017</p> </h3>
+            <h5 class="text-center">The current ranking is a consolidated ranking for Senior Group each individual event. </h5>
+            <form>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                        <input type="text" class="form-control" placeholder="Search Here" ng-model="searchFish">
+                    </div>      
+                </div>
+            </form>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td>
+                            <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                                Ranking
+                                <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" ng-click="sortType = 'fish'; sortReverse = !sortReverse">
+                                Gender
+                                <span ng-show="sortType == 'fish' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'fish' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+                                Name 
+                                <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" ng-click="sortType = 'time'; sortReverse = !sortReverse">
+                                Timing
+                                <span ng-show="sortType == 'time' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'time' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" ng-click="sortType = 'meet'; sortReverse = !sortReverse">
+                                Meet
+                                <span ng-show="sortType == 'meet' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'meet' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" ng-click="sortType = 'represent'; sortReverse = !sortReverse">
+                                Represented
+                                <span ng-show="sortType == 'represent' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'represent' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" ng-click="sortType = 'm_position'; sortReverse = !sortReverse">
+                                Meet Position
+                                <span ng-show="sortType == 'm_position' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'm_position' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" ng-click="sortType = 'e_name'; sortReverse = !sortReverse">
+                                Event Name
+                                <span ng-show="sortType == 'e_name' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'e_name' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'e_name' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="roll in sushi| orderBy:sortType:sortReverse | filter:searchFish">
+                        <td>{{ roll.name}}</td>
+                        <td>{{ roll.fish}}</td>
+                        <td>{{ roll.tastiness}}</td>
+                        <td>{{ roll.time}}</td>
+                        <td>{{ roll.meet}}</td>
+                        <td>{{ roll.represent}}</td>
+                        <td>{{ roll.m_position}}</td>
+                        <td>{{ roll.e_name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-center text-muted">
+                <a href="http://www.swimindia.in" target="_blank">SwimIndia</a>
+            </p>
+        </div>
+        <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js'></script>
+        <script  src="indexsenior.js"></script>
+    </body>
+</html>
